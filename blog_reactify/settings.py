@@ -17,6 +17,9 @@ env = environ.Env()
 # reading .env file
 environ.Env.read_env()
 import os
+import django_heroku
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,7 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://lunablog.herokuapp.com','localhost','127.0.0.1:8000']
 
 
 # Application definition
@@ -187,15 +190,28 @@ USE_L10N = True
 
 USE_TZ = True
 
+# my config>>>>>>>>>>>>>>>..
+
+# CLIENT_DIR="frontend/build"
+
+
+django_heroku.settings(locals())
+
+
+
+
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
-# STATIC_ROOT=os.path.join(BASE_DIR,'static')
-# STATICFILES_DIRS=[
-#     os.path.join(BASE_DIR,'static')
-# ]
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
 
 
 MEDIA_DIR = BASE_DIR / 'media'
