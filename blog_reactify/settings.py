@@ -71,7 +71,7 @@ MIDDLEWARE = [
 
 # CORS_ALLOW_CREDENTIALS=True
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
+    'http://localhost:8000','https://lunablog.herokuapp.com'
 ]
 
 

@@ -136,7 +136,7 @@ class RequestPasswordResetEmail(GenericAPIView):
             # absurl='http://'+current_site+relativeLink
             print(relativeLink,">>>>>>>>>>>>>")
             relativeLink=relativeLink[4:]
-            absurl='http://localhost:8000'+relativeLink
+            absurl='https://lunablog.herokuapp.com'+relativeLink
 
            
             email_body = 'Hi '+user.username + \

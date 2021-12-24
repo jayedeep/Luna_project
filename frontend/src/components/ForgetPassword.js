@@ -27,7 +27,7 @@ class ForgetPassword extends Component{
         var email=$(e.target).find('input[name=email]').val()
     
         try {
-            const res = await fetch('http://127.0.0.1:8000/api/request-reset-email',
+            const res = await fetch('https://lunablog.herokuapp.com/api/request-reset-email',
                                 {method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'

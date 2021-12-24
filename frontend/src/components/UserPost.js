@@ -23,7 +23,7 @@ class UserPost extends Component{
     async componentDidMount() {
         var self=this;
         var category=[]
-        const res = await fetch(`http://127.0.0.1:8000/api/userpost?userid=${this.props.match.params.user_id}`);
+        const res = await fetch(`https://lunablog.herokuapp.com/api/userpost?userid=${this.props.match.params.user_id}`);
         const responsepost = await res.json();
   
             this.setState({allpost:responsepost.posts,user:responsepost.user,profile:responsepost.profile})

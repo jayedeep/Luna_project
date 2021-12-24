@@ -40,7 +40,7 @@ class PasswordReset extends Component{
         var uidb64=this.props.match.params.uid
         var token=this.props.match.params.token
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/password-reset/${uidb64}/${token}`,{
+            const res = await fetch(`https://lunablog.herokuapp.com/api/password-reset/${uidb64}/${token}`,{
                 headers: { 'Content-Type': 'application/json'}
             })
             const responsepost = await res.json();

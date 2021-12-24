@@ -31,7 +31,7 @@ class Home extends Component{
       async clearPost(e){
         this.setState({search_value:'',found_data:true})
           try {
-            const res = await fetch('http://127.0.0.1:8000/api/');
+            const res = await fetch('https://lunablog.herokuapp.com/api/');
             const responsepost = await res.json();
             this.setState({
               posts:responsepost
@@ -63,7 +63,7 @@ class Home extends Component{
         console.log("componentDidMount called")
         var self=this;
         try {
-          const res = await fetch('http://127.0.0.1:8000/api/');
+          const res = await fetch('https://lunablog.herokuapp.com/api/');
           const responsepost = await res.json();
           this.setState((currstate)=>({
             posts:[...currstate.posts,...responsepost]
