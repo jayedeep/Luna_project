@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 # from django.urls import re_path
 
 
-urlpatterns = [
+urlpatterns=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += [
     path('admin/', admin.site.urls),
     path('api/', include('blog.urls')),
     path('api/', include('users.urls')),
@@ -34,7 +35,6 @@ urlpatterns = [
     # path('', include('frontend.urls')),  # add a url from frontend.urls
 
 
-
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 urlpatterns+=[path('',include('frontend.urls'))]
