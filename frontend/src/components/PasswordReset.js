@@ -70,7 +70,7 @@ class PasswordReset extends Component{
         var token=this.state.token
         var uid64=this.state.uid64
         try {
-            const res = await fetch(`http://127.0.0.1:8000/api/password-reset-complete`,{
+            const res = await fetch(`https://lunablog.herokuapp.com/api/password-reset-complete`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
