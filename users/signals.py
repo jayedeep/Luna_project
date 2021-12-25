@@ -13,5 +13,4 @@ def create_profile(sender,instance,created,**kwargs):
 @receiver(post_save, sender=User)
 def save_profile(sender, instance,**kwargs):
     print("signal running 2")
-
     instance.profile.save()
