@@ -97,11 +97,10 @@ class CurrentUserWithPost(APIView):
     
     def patch(self,request,format='json'):
         # id=request.user.id
+        print("request data put>>>>>>>>>",self.request.body,request.data)
 
         stu=Profile.objects.get(user=request.user)
         serializer=ProfileSerializers(stu,data=request.data,partial=True)
-        print("request data put>>>>>>>>>",self.request.body,request.data)
-
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status=status.HTTP_200_OK)
