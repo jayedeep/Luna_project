@@ -22,7 +22,7 @@ import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_DIR=os.path.join(BASE_DIR,'frontend','static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -208,10 +208,10 @@ django_heroku.settings(locals())
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT=os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+    STATIC_DIR
 ]
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
 
 MEDIA_DIR = BASE_DIR / 'media'
