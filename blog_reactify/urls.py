@@ -29,9 +29,8 @@ urlpatterns = [
     path('api/', include('blog.urls')),
     path('api/', include('users.urls')),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-
+    path('',include('frontend.urls'))
 ]
+# urlpatterns+=[path('',include('frontend.urls'))]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns+=[path('',include('frontend.urls'))]
