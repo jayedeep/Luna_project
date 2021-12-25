@@ -25,7 +25,7 @@ class About extends Component{
                                     <li className="list-group-item"><i className="fas fa-phone-square-alt" style={{color:'#007bff',fontSize:'larger'}}></i> +91 9586258025</li>
                                     <li className="list-group-item"><i className="fab fa-whatsapp-square" style={{color:'#2fff40',fontSize:'larger'}}></i> +91 6353701592</li>
                                     <li className="list-group-item"><i className="fas fa-envelope-square" style={{color:'rgb(255 47 47 / 87%)',fontSize:'larger'}}></i> jaydeeptalaviya@gmail.com</li>
-                                    <li className="list-group-item"><i className="fab fa-linkedin" style={{color:'rgb(47 129 255)',fontSize:'larger'}}></i> https://www.linkedin.com/in/jaydeep-talaviya-540901195/</li>
+                                    <li className="list-group-item" style={{overflowWrap:'break-word'}}><i className="fab fa-linkedin" style={{color:'rgb(47 129 255)',fontSize:'larger'}}></i> https://www.linkedin.com/in/jaydeep-talaviya-540901195/</li>
                                     
                                     </ul>
                             </div>
