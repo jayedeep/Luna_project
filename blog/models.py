@@ -40,12 +40,12 @@ class Post(models.Model):
         super().save(*args,**kwargs)
         # print(self.image,">>>>>>>>>>>image")
         if self.image:
-            img=Image.open(self.image.path)
+            img=Image.open(self.image)
 
             if img.height >300 or img.width>300:
                 output_size=(300,300)
                 img.thumbnail(output_size)
-                img.save(self.image.path)
+                img.save(self.image)
 
 class Likes(models.Model):
     likes=models.BooleanField(default=False)
