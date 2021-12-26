@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 from django.shortcuts import reverse
+from django.core.files.storage import default_storage as storage
 
 # Create your models here.
 
@@ -35,4 +36,19 @@ class Profile(models.Model):
         if img.height >300 or img.width>300:
             output_size=(300,300)
             img.thumbnail(output_size)
-            img.save(self.image.path)
+            img.save(self.image)
+
+
+    # def save(self,):
+    #     super().save(*args,**kwargs)
+    #     # img=Image.open(self.image.path)
+    #     image = Image.open(self.image.path)
+    #     cropped_image = image.crop((x, y, w + x, h + y))
+    #     resized_image = cropped_image.resize((200, 200), Image.ANTIALIAS)
+
+    #     fh = storage.open(user.primaryphoto.name, "w")
+    #     picture_format = 'png'
+    #     resized_image.save(fh, picture_format)
+    #     fh.close()        
+    #     resized_image.save(user.primaryphoto.path)
+    #     return user
