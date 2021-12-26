@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'django_filters',
     'frontend.apps.FrontendConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -198,13 +199,6 @@ USE_TZ = True
 # CLIENT_DIR="frontend/build"
 
 
-django_heroku.settings(locals())
-
-
-
-
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -218,12 +212,22 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# MEDIA_DIR = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-# MEDIA_ROOT = MEDIA_DIR
+AWS_STORAGE_BUCKET_NAME = 'myblinkapp2'
+AWS_S3_REGION_NAME='us-west-1'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# MEDIA_DIR = BASE_DIR / 'media'
+# MEDIA_URL = '/media/'
+# # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+
+MEDIAFILES_LOCATION = 'media'
+MEDIA_ROOT = '/%s/' % MEDIAFILES_LOCATION
+MEDIA_URL = '//%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+DEFAULT_FILE_STORAGE = 'blog_reactify.custom_storages.MediaStorage'
 
 
 
@@ -238,5 +242,8 @@ PASSWORD_RESET_TIMEOUT=3600
 
 # EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 # EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 APPEND_SLASH=True
+
+django_heroku.settings(locals())
